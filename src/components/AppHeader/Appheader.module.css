@@ -1,0 +1,9 @@
+.app-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 12px 0 12px;
+  width: var(--navbar-width);
+  border-right: 1px solid rgb(193, 206, 214);
+  background-color: rgb(240, 242, 245);
+}

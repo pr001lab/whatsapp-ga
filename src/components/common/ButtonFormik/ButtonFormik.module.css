@@ -1,0 +1,14 @@
+.button {
+
+}
+
+.form-error {
+  grid-row: 8;
+  color: rgb(184, 5, 49);
+  font-size: 16px;
+  line-height: 16px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background-color: rgb(253, 232, 235);
+}
+

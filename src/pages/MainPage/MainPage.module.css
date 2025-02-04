@@ -1,0 +1,25 @@
+.main-page {
+  height: 100vh;
+  width: 100vw;
+  max-width: 1600px;
+  padding: 20px 40px;
+  margin: 0 auto;
+  background-image: linear-gradient(to bottom, var(--app-background-stripe) 10%, var(--WDS-app-wash, var(--app-background)) 0%, var(--WDS-app-wash, var(--app-background-deeper)) 0%);
+}
+
+.page-app {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 6px 18px rgba(var(--shadow-rgb), .05);
+}
+
+.svg-icon.plus {
+  background-color: rgb(209, 215, 219);
+}
+
+@media screen and (max-width: 1440px) {
+  #root {
+    padding: 0;
+  }
+}

@@ -1,0 +1,14 @@
+.app-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  height: 100%;
+}
+
+.app-menu__services,
+.app-menu__user {
+  display: flex;
+  flex-direction: column;
+}
