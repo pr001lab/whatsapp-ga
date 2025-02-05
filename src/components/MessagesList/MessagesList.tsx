@@ -22,7 +22,7 @@ function MessagesList() {
     return () => {
       // clearInterval(intervalId);
     };
-  }, []);
+  }, [dispatch]);
 
   return (
     <List className={styles['messages-list']}>
