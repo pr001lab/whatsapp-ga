@@ -12,15 +12,14 @@ import { useEffect } from 'react';
 function MessagesList() {
   const dispatch = useDispatch<AppDispatch>();
   const { items: messages } = useSelector((state: RootState) => state.message);
-  // console.log('MessagesList');
 
   useEffect(() => {
-    // const intervalId = setInterval(() => {
-    dispatch(getMessage());
-    // }, 30 * 1000);
+    const intervalId = setInterval(() => {
+      dispatch(getMessage());
+    }, 30 * 1000);
 
     return () => {
-      // clearInterval(intervalId);
+      clearInterval(intervalId);
     };
   }, [dispatch]);
 

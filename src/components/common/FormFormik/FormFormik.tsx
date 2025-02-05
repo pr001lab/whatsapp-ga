@@ -19,7 +19,6 @@ const FormFormik = ({
       validate={validate}
       onSubmit={(values, { resetForm }) => {
         if ('message' in values) {
-          console.log('values :', values);
           const message = values.message;
           dispatch(postMessage({ message }));
           resetForm();

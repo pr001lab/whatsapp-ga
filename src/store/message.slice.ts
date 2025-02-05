@@ -62,6 +62,10 @@ export const getMessage = createAsyncThunk<IMessageProps | undefined>(
         `${localStorage?.apiUrl}/waInstance${localStorage?.idInstance}/receiveNotification/${localStorage?.apiTokenInstance}`,
       );
 
+      await axios.delete(
+        `${localStorage?.apiUrl}/waInstance${localStorage?.idInstance}/deleteNotification/${localStorage?.apiTokenInstance}/${data.receiptId}`,
+      );
+
       data.chatId = data.body.senderData.chatId;
       data.message = data.body.messageData.textMessageData.textMessage;
       data.date = JSON.stringify(new Date(data.body.timestamp * 1000));
@@ -76,33 +80,6 @@ export const getMessage = createAsyncThunk<IMessageProps | undefined>(
     }
   },
 );
-
-// export const deleteClient = createAsyncThunk<
-//   IMessageProps,
-//   { documentId: string },
-//   {
-//     state: RootState;
-//   }
-// >('client/deleteClient', async ({ documentId }, thunkAPI) => {
-//   const jwt = thunkAPI.getState().user.jwt;
-//
-//   try {
-//     const { data } = await axios.delete(
-//       `${API}${APIRoute.Clients}/${documentId}`,
-//       {
-//         headers: {
-//           Authorization: `Bearer ${jwt}`,
-//         },
-//       },
-//     );
-//
-//     return data.data;
-//   } catch (err) {
-//     if (err instanceof AxiosError) {
-//       throw new Error(err.response?.data.message);
-//     }
-//   }
-// });
 
 export const messageSlice = createSlice({
   name: 'message',
@@ -139,20 +116,6 @@ export const messageSlice = createSlice({
         state.loadingStatus = LoadingStatus.Failed;
         state.loadingError = action.payload ? action.payload.toString() : null;
       });
-    // builder
-    //   .addCase(deleteClient.pending, (state) => {
-    //     state.loadingStatus = LoadingStatus.Loading;
-    //   })
-    //   .addCase(deleteClient.fulfilled, (state, action) => {
-    //     state.items = state.items.filter(
-    //       (item) => item.documentId !== action.meta.arg.documentId,
-    //     );
-    //     state.loadingStatus = LoadingStatus.Successed;
-    //   })
-    //   .addCase(deleteClient.rejected, (state, action) => {
-    //     state.loadingStatus = LoadingStatus.Failed;
-    //     state.loadingError = action.payload ? action.payload.toString() : null;
-    //   });
   },
 });
 
