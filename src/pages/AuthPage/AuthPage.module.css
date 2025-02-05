@@ -17,16 +17,17 @@
   gap: 6px;
 }
 
-form {
+.form-container {
   grid-row: 2;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 38px 10px 30px 32px 60px 60px 60px 60px 40px;
+  grid-template-rows: 38px 10px 30px 32px 60px 60px 60px 60px 60px 40px;
   justify-items: center;
   align-items: center;
   padding: 60px 68px;
   width: 100%;
   max-width: 980px;
+  min-width: 560px;
   border-radius: 25px;
   background-color: rgb(255, 255, 255);
 }
@@ -68,6 +69,10 @@ h1 {
   grid-row: 7;
 }
 
+.wrapper-input.phone {
+  grid-row: 8;
+}
+
 .form-input {
   display: block;
   color: rgb(17, 27, 33);
@@ -80,7 +85,7 @@ h1 {
 }
 
 .form-button {
-  grid-row: 9;
+  grid-row: 10;
   color: rgb(255, 255, 255);
   padding: 10px 24px;
   border-radius: 24px;
@@ -103,5 +108,5 @@ h1 {
   color: rgb(17, 27, 33);
   font-size: 14px;
   line-height: 14px;
-  margin-bottom: 200px;
+  margin-bottom: 150px;
 }

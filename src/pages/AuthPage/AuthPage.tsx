@@ -28,6 +28,7 @@ const AuthPage = () => {
       <FormFormik
         initialValues={{ apiUrl: '', idInstance: '', apiTokenInstance: '' }}
         validate={validate}
+        className={styles['form-container']}
       >
         <Heading level={'h1'}>Enter your Green-Api details</Heading>
         <Paragraph className={styles['form-text']}>
@@ -61,6 +62,15 @@ const AuthPage = () => {
             className={styles['form-input']}
             type='text'
             name={'apiTokenInstance'}
+            showError={false}
+          />
+        </Division>
+        <Division className={`${styles['wrapper-input']} ${styles['phone']}`}>
+          <Span>Phone</Span>
+          <InputFormik
+            className={styles['form-input']}
+            type='text'
+            name={'phone'}
             showError={false}
           />
         </Division>
