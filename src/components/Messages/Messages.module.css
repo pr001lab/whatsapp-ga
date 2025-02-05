@@ -59,6 +59,12 @@
 .footer form {
   flex-grow: 1;
   display: grid;
+  grid-template-columns: 1fr 44px;
+  align-items: center;
+}
+
+.wrapper-input {
+  display: grid;
   grid-template-columns: 44px 1fr;
   align-items: center;
   border-radius: 8px;
@@ -67,16 +73,19 @@
 }
 
 .svg-icon-input {
+  grid-column: 1;
   justify-self: center;
 }
 
-.footer input {
+.form-input {
+  grid-column: 2;
   font-size: 15px;
   padding: 9px 12px;
   margin: 5px 0;
   width: 100%;
-  border: none
-
+  border: none;
+  outline: none;
+  background-color: rgb(255, 255, 255);
 }
 
 .footer input:focus-visible {

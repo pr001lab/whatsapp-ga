@@ -12,8 +12,25 @@ import styles from './Messages.module.css';
 import Division from '../common/Division/Division.tsx';
 import Image from '../common/Image/Image.tsx';
 import Paragraph from '../common/Paragraph /Paragraph .tsx';
+import ButtonFormik from '../common/ButtonFormik/ButtonFormik.tsx';
+import { withZodSchema } from 'formik-validator-zod';
+import { z } from 'zod';
+import { loadState } from '../../utils/utils.tsx';
+
+const validate = withZodSchema(
+  z.object({
+    message: z.string().min(1),
+  }),
+);
 
 function Messages() {
+  const localStorage = loadState<{
+    apiUrl: string;
+    idInstance: string;
+    apiTokenInstance: string;
+    phone: string;
+  }>('green-api');
+
   return (
     <Section className={styles['messages']}>
       <Heading level={'h2'} className={'visually-hidden'}>
@@ -28,7 +45,9 @@ function Messages() {
             src={'/user-avatar-default.svg'}
             alt={LabelsMenu.Profile}
           />
-          <Paragraph className='header-author__name'>Ivan Ivanov</Paragraph>
+          <Paragraph className='header-author__name'>
+            {localStorage?.phone}
+          </Paragraph>
         </Division>
         <Division className={styles['header-buttons']}>
           <Button
@@ -60,24 +79,33 @@ function Messages() {
         <Button className={'svg-icon-button'} title={LabelsMenu.Attach}>
           <SVGIcon className={'svg-icon-button'} urlSvgIcon={'/plus.svg'} />
         </Button>
-        <FormFormik>
-          <SVGIcon
-            className={styles['svg-icon-input']}
-            urlSvgIcon={'/face.svg'}
-          />
-          <InputFormik
-            className={''}
-            type='text'
-            name={'message'}
-            placeholder={'Enter message'}
-          />
-        </FormFormik>
-        <Button className={'svg-icon-button'} title={LabelsMenu.Microphone}>
-          <SVGIcon
+        <FormFormik initialValues={{ message: '' }} validate={validate}>
+          <Division className={styles['wrapper-input']}>
+            <SVGIcon
+              className={styles['svg-icon-input']}
+              urlSvgIcon={'/face.svg'}
+            />
+            <InputFormik
+              className={styles['form-input']}
+              type='text'
+              name={'message'}
+              placeholder={'Enter message'}
+              showError={false}
+            />
+          </Division>
+          <ButtonFormik
             className={'svg-icon-button'}
-            urlSvgIcon={'/microphone.svg'}
-          />
-        </Button>
+            title={LabelsMenu.Microphone}
+            showError={false}
+            type='submit'
+          >
+            {/*<SVGIcon*/}
+            {/*  className={'svg-icon-button'}*/}
+            {/*  urlSvgIcon={'/microphone.svg'}*/}
+            {/*/>*/}
+            <SVGIcon className={'svg-icon-button'} urlSvgIcon={'/send.svg'} />
+          </ButtonFormik>
+        </FormFormik>
       </Footer>
     </Section>
   );

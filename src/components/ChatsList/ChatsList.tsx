@@ -3,14 +3,19 @@ import { ChatsListProps } from './ChatsList.props.ts';
 import cn from 'classnames';
 import { LabelsMenu } from '../../constant.ts';
 import ChatsItem from '../ChatsItem/ChatsItem.tsx';
-import { range } from '../../utils/utils.tsx';
 import List from '../common/List/List.tsx';
 import ListItem from '../common/ListItem/ListItem.tsx';
 import Image from '../common/Image/Image.tsx';
 import Division from '../common/Division/Division.tsx';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store.ts';
+import { IMessageProps } from '../../types/message.ts';
+import { getLastChats } from '../../utils/utils.tsx';
 
 function ChatsList({ className, ...props }: ChatsListProps) {
   const cl = cn(styles['chats-list'], className);
+  const { items: messages } = useSelector((state: RootState) => state.message);
+  const lastChats: IMessageProps[] = getLastChats(messages);
 
   return (
     <List className={cl} {...props}>
@@ -24,8 +29,8 @@ function ChatsList({ className, ...props }: ChatsListProps) {
         />
         <Division className={styles['chats-item__content']}>В архиве</Division>
       </ListItem>
-      {range(0, 15, 1).map((item) => (
-        <ChatsItem key={item} />
+      {lastChats.map((lastChat) => (
+        <ChatsItem key={lastChat.chatId} {...lastChat} />
       ))}
     </List>
   );

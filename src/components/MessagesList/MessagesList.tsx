@@ -1,41 +1,51 @@
 import styles from './MessagesList.module.css';
-import { range } from '../../utils/utils.tsx';
-import ListItem from '../common/ListItem/ListItem.tsx';
 import Paragraph from '../common/Paragraph /Paragraph .tsx';
 import List from '../common/List/List.tsx';
 import Span from '../common/Span/Span.tsx';
+import { AppDispatch, RootState } from '../../store/store.ts';
+import { useDispatch, useSelector } from 'react-redux';
+import { format } from 'fecha';
+import ListItem from '../common/ListItem/ListItem.tsx';
+import { getMessage } from '../../store/message.slice.ts';
+import { useEffect } from 'react';
 
 function MessagesList() {
+  const dispatch = useDispatch<AppDispatch>();
+  const { items: messages } = useSelector((state: RootState) => state.message);
+  // console.log('MessagesList');
+
+  useEffect(() => {
+    // const intervalId = setInterval(() => {
+    dispatch(getMessage());
+    // }, 30 * 1000);
+
+    return () => {
+      // clearInterval(intervalId);
+    };
+  }, []);
+
   return (
     <List className={styles['messages-list']}>
-      {range(0, 10, 1).map((item) => (
-        <>
-          <ListItem className={`${styles['messages-list__item-author']}`}>
+      {messages.map((message) => {
+        const messagesListItem =
+          'author' in message
+            ? 'messages-list__item'
+            : 'messages-list__item-author';
+
+        return (
+          <ListItem key={message.id} className={`${styles[messagesListItem]}`}>
             <Paragraph className={styles['message__text']}>
-              Lorem ipsum dolor sit amet.
+              {message.message}
             </Paragraph>
-            <Span className={styles['message__time']}>12:05</Span>
+            <Span className={styles['message__time']}>
+              <sub>
+                {message.date &&
+                  format(new Date(JSON.parse(message.date)), 'shortTime')}
+              </sub>
+            </Span>
           </ListItem>
-          <ListItem className={`${styles['messages-list__item-author']}`}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.{' '}
-            <Span className={styles['message__time']}>12:06</Span>
-          </ListItem>
-          <ListItem className={styles['messages-list__item']}>
-            Lorem ipsum dolor sit amet.{' '}
-            <Span className={styles['message__time']}>12:16</Span>
-          </ListItem>
-          <ListItem className={styles['messages-list__item']}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.{' '}
-            <Span className={styles['message__time']}>12:18</Span>
-          </ListItem>
-        </>
-      ))}
+        );
+      })}
     </List>
   );
 }

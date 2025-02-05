@@ -7,6 +7,7 @@ import styles from '../ButtonFormik/ButtonFormik.module.css';
 function ButtonFormik({
   children,
   onClick,
+  showError = true,
   className,
   ...props
 }: ButtonFormikProps) {
@@ -15,7 +16,7 @@ function ButtonFormik({
 
   return (
     <>
-      {!formikContext.isValid && formikContext.submitCount ? (
+      {showError && !formikContext.isValid && formikContext.submitCount ? (
         <Division className={styles['form-error']}>
           Some fields are invalid.
         </Division>

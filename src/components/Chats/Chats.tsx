@@ -9,6 +9,8 @@ import Heading from '../common/Heading/Heading.tsx';
 import SVGIcon from '../common/SVGIcon/SVGIcon.tsx';
 import ChatsList from '../ChatsList/ChatsList.tsx';
 import Division from '../common/Division/Division.tsx';
+import { CgLogOut } from 'react-icons/cg';
+import { saveState } from '../../utils/utils.tsx';
 
 function Chats() {
   return (
@@ -19,12 +21,19 @@ function Chats() {
           <Button className={'svg-icon-button'} title={LabelsMenu.AddNewChat}>
             <SVGIcon urlSvgIcon={'/new-chat.svg'} />
           </Button>
-          <Button className={'svg-icon-button'} title={LabelsMenu.ChatMenu}>
-            <SVGIcon className={'svg-icon-button'} urlSvgIcon={'/menu.svg'} />
+          <Button
+            onClick={() => {
+              saveState('', 'green-api');
+              window.location.reload();
+            }}
+            title={LabelsMenu.ChatMenu}
+            style={{ background: 'transparent', border: 'none' }}
+          >
+            <CgLogOut size={25} color={'rgb(134, 150, 160)'} />
           </Button>
         </Division>
       </Header>
-      <FormFormik>
+      <FormFormik initialValues={{ search: '' }}>
         <Division className={styles['wrapper-input']}>
           <Button className={`svg-icon-button ${styles['button-search']}`}>
             <SVGIcon

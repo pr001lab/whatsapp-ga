@@ -1,17 +1,18 @@
 import styles from './ChatsItem.module.css';
-import { ChatsItemProps } from './ChatsItem.props.ts';
 import cn from 'classnames';
 import { LabelsMenu } from '../../constant.ts';
 import Division from '../common/Division/Division.tsx';
 import ListItem from '../common/ListItem/ListItem.tsx';
 import Image from '../common/Image/Image.tsx';
 import Paragraph from '../common/Paragraph /Paragraph .tsx';
+import { IMessageProps } from '../../types/message.ts';
+import { format } from 'fecha';
 
-function ChatsItem({ className, ...props }: ChatsItemProps) {
-  const cl = cn(styles['chats-item'], className);
+function ChatsItem({ chatId, message, date }: IMessageProps) {
+  const cl = cn(styles['chats-item']);
 
   return (
-    <ListItem className={cl} {...props}>
+    <ListItem className={cl}>
       <Image
         className={styles['chats-item__avatar']}
         width='49'
@@ -22,12 +23,14 @@ function ChatsItem({ className, ...props }: ChatsItemProps) {
       <Division className={styles['chats-item__content']}>
         <Division className={styles['chats-item__content-title']}>
           <Paragraph className={styles['content-title__text']}>
-            Иван Иванов
+            {chatId}
           </Paragraph>
-          <Paragraph className={styles['content-title__data']}>18:45</Paragraph>
+          <Paragraph className={styles['content-title__data']}>
+            <sub>{date && format(new Date(JSON.parse(date)), 'shortTime')}</sub>
+          </Paragraph>
         </Division>
         <Paragraph className={styles['chats-item__content-message']}>
-          Ок)
+          {message}
         </Paragraph>
       </Division>
     </ListItem>
