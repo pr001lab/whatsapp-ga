@@ -6,12 +6,6 @@ import Division from '../common/Division/Division.tsx';
 import Navigation from '../common/Navigation/Navigation.tsx';
 
 function AppMenu() {
-  //TODO: remove
-  // const onLogoutButtonClick = () => {
-  //   dispatch(userActions.logout());
-  //   navigate(AppRoute.MainPage, { replace: true });
-  // };
-
   return (
     <Navigation className={styles['app-menu']}>
       <Division className={styles['app-menu__services']}>

@@ -5,20 +5,8 @@ export enum LoadingStatus {
   Failed = 'failed',
 }
 
-export enum APIRoute {
-  SignIn = '/auth/local',
-  SignUp = '/auth/local/register',
-  getProfileUser = 'users/me',
-  Clients = '/clients',
-}
-
 export enum AppRoute {
   Main = '/',
-  SignUp = '/sign-up',
-  SignIn = '/sign-in',
-  Client = '/client',
-  ClientId = '/client/:id',
-  AddClient = '/add-client/',
 }
 
 export enum LabelsMenu {
@@ -35,9 +23,6 @@ export enum LabelsMenu {
   Search = 'Search',
   Archive = 'Archive',
   UploadApp = 'Upload App',
-  SignUp = 'SignUp',
-  SignIn = 'SignIp',
-  LogOut = 'LogOut',
 }
 
 export enum FilterEnum {
