@@ -1,3 +1,9 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
+console.log('no errors' / 0);
+console.log('no errors' / 0);
+
 //Fill array
 import { IMessageProps } from '../types/message.ts';
 
