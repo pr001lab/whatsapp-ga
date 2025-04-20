@@ -17,7 +17,7 @@ function ChatsItem({ chatId, message, date }: IMessageProps) {
         className={styles['chats-item__avatar']}
         width='49'
         height='49'
-        src={'/user-avatar-default.svg'}
+        src={'user-avatar-default.svg'}
         alt={LabelsMenu.Profile}
       />
       <Division className={styles['chats-item__content']}>

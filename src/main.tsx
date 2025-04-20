@@ -1,7 +1,6 @@
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { AppRoute } from './constant.ts';
 import MainPage from './pages/MainPage/MainPage.tsx';
 import AuthPage from './pages/AuthPage/AuthPage.tsx';
 import { loadState } from './utils/utils.tsx';
@@ -11,7 +10,7 @@ import { store } from './store/store.ts';
 
 const router = createBrowserRouter([
   {
-    path: AppRoute.Main,
+    path: '/whatsapp-ga',
     element: loadState('green-api') ? (
       <RequireAuth>
         <MainPage />

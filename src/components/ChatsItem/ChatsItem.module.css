@@ -5,6 +5,12 @@
   width: 100%;
   align-items: stretch;
   gap: 8px;
+  border-radius: 12px;
+}
+
+.chats-item:hover {
+  background-color: rgb(240, 242, 245);
+  cursor: pointer;
 }
 
 .chats-item__archive,
@@ -17,7 +23,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-bottom: 1px solid rgb(233, 237, 239);
+  /*border-bottom: 1px solid rgb(233, 237, 239);*/
 }
 
 .chats-item__content-title {
@@ -29,7 +35,7 @@
 .content-title__text {
   color: var(--text);
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 700;
   line-height: 21px;
 
 }
@@ -46,4 +52,10 @@
   color: rgb(102, 119, 129);
   font-weight: 400;
   line-height: 20px;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
 }

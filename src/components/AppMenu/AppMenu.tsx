@@ -10,21 +10,21 @@ function AppMenu() {
     <Navigation className={styles['app-menu']}>
       <Division className={styles['app-menu__services']}>
         <Button className={`svg-icon-button active`} title={LabelsMenu.Chats}>
-          <SVGIcon className={'svg-icon'} urlSvgIcon={'/chats.svg'} />
+          <SVGIcon className={'svg-icon'} urlSvgIcon={'chats.svg'} />
         </Button>
         <Button className={'svg-icon-button'} title={LabelsMenu.Status}>
-          <SVGIcon className={'svg-icon'} urlSvgIcon={'/status.svg'} />
+          <SVGIcon className={'svg-icon'} urlSvgIcon={'status.svg'} />
         </Button>
         <Button className={'svg-icon-button'} title={LabelsMenu.Communities}>
-          <SVGIcon className={'svg-icon'} urlSvgIcon={'/community.svg'} />
+          <SVGIcon className={'svg-icon'} urlSvgIcon={'community.svg'} />
         </Button>
       </Division>
       <Division className={styles['app-menu__user']}>
         <Button className={'svg-icon-button'} title={LabelsMenu.Settings}>
-          <SVGIcon className={'svg-icon'} urlSvgIcon={'/settings.svg'} />
+          <SVGIcon className={'svg-icon'} urlSvgIcon={'settings.svg'} />
         </Button>
         <Button className={'icon-button'} title={LabelsMenu.Profile}>
-          <img src={'/user-avatar-default.svg'} alt={LabelsMenu.Profile} />
+          <img src={'user-avatar-default.svg'} alt={LabelsMenu.Profile} />
         </Button>
       </Division>
     </Navigation>

@@ -1,7 +1,7 @@
 .chats-list {
   height: calc(100% - 138px);
   overflow-y: auto;
-  margin-right: -10px;
+  /*margin-right: -10px;*/
   background-color: var(--background-default);
 }
 

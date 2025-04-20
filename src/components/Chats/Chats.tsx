@@ -19,7 +19,7 @@ function Chats() {
         <Heading level={'h2'}>Chats</Heading>
         <Division className={styles['buttons']}>
           <Button className={'svg-icon-button'} title={LabelsMenu.AddNewChat}>
-            <SVGIcon urlSvgIcon={'/new-chat.svg'} />
+            <SVGIcon urlSvgIcon={'new-chat.svg'} />
           </Button>
           <Button
             onClick={() => {
@@ -38,7 +38,7 @@ function Chats() {
           <Button className={`svg-icon-button ${styles['button-search']}`}>
             <SVGIcon
               className={styles['svg-icon-search']}
-              urlSvgIcon={'/search.svg'}
+              urlSvgIcon={'search.svg'}
             />
           </Button>
           <InputFormik

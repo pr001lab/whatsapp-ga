@@ -42,10 +42,10 @@ function Messages() {
             className={styles['header-author__avatar']}
             width='40'
             height='40'
-            src={'/user-avatar-default.svg'}
+            src={'user-avatar-default.svg'}
             alt={LabelsMenu.Profile}
           />
-          <Paragraph className='header-author__name'>
+          <Paragraph className={styles['header-author__name']}>
             {localStorage?.phone}
           </Paragraph>
         </Division>
@@ -54,36 +54,36 @@ function Messages() {
             className={`svg-icon-button ${styles['button-video']}`}
             title={'Load app for calls'}
           >
-            <SVGIcon className={styles['svg-icon']} urlSvgIcon={'/video.svg'} />
+            <SVGIcon className={styles['svg-icon']} urlSvgIcon={'video.svg'} />
             <Image
               className={styles['svg-icon-chevron']}
               width='10'
               height='10'
-              src={'/chevron.svg'}
+              src={'chevron.svg'}
               alt={LabelsMenu.UploadApp}
             />
           </Button>
           <Button className={`svg-icon-button ${styles['button-search']}`}>
             <SVGIcon
               className={styles['svg-icon-search']}
-              urlSvgIcon={'/search.svg'}
+              urlSvgIcon={'search.svg'}
             />
           </Button>
           <Button className={'svg-icon-button'} title={LabelsMenu.ChatMenu}>
-            <SVGIcon className={'svg-icon-button'} urlSvgIcon={'/menu.svg'} />
+            <SVGIcon className={'svg-icon-button'} urlSvgIcon={'menu.svg'} />
           </Button>
         </Division>
       </Header>
       <MessagesList />
       <Footer className={styles['footer']}>
         <Button className={'svg-icon-button'} title={LabelsMenu.Attach}>
-          <SVGIcon className={'svg-icon-button'} urlSvgIcon={'/plus.svg'} />
+          <SVGIcon className={'svg-icon-button'} urlSvgIcon={'plus.svg'} />
         </Button>
         <FormFormik initialValues={{ message: '' }} validate={validate}>
           <Division className={styles['wrapper-input']}>
             <SVGIcon
               className={styles['svg-icon-input']}
-              urlSvgIcon={'/face.svg'}
+              urlSvgIcon={'face.svg'}
             />
             <InputFormik
               className={styles['form-input']}
@@ -103,7 +103,7 @@ function Messages() {
             {/*  className={'svg-icon-button'}*/}
             {/*  urlSvgIcon={'/microphone.svg'}*/}
             {/*/>*/}
-            <SVGIcon className={'svg-icon-button'} urlSvgIcon={'/send.svg'} />
+            <SVGIcon className={'svg-icon-button'} urlSvgIcon={'send.svg'} />
           </ButtonFormik>
         </FormFormik>
       </Footer>

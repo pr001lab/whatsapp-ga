@@ -22,8 +22,8 @@ const AuthPage = () => {
   return (
     <Division className={styles['auth-page']}>
       <Division className={styles['logo']}>
-        <img src={'/logo.svg'} alt={LabelsMenu.EncryptionProtection} />
-        <img src={'/logo-name.svg'} alt={LabelsMenu.EncryptionProtection} />
+        <img src={'logo.svg'} alt={LabelsMenu.EncryptionProtection} />
+        <img src={'./logo-name.svg'} alt={LabelsMenu.EncryptionProtection} />
       </Division>
       <FormFormik
         initialValues={{ apiUrl: '', idInstance: '', apiTokenInstance: '' }}
@@ -79,7 +79,7 @@ const AuthPage = () => {
         </ButtonFormik>
       </FormFormik>
       <Paragraph className={styles['text-comment']}>
-        <img src={'/lock.svg'} alt={LabelsMenu.EncryptionProtection} />
+        <img src={'lock.svg'} alt={LabelsMenu.EncryptionProtection} />
         Your private messages are protected by end-to-end encryption
       </Paragraph>
     </Division>

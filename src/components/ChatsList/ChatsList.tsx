@@ -24,10 +24,10 @@ function ChatsList({ className, ...props }: ChatsListProps) {
           className={styles['chats-item__archive']}
           width='24'
           height='24'
-          src={'/archive.svg'}
+          src={'archive.svg'}
           alt={LabelsMenu.Archive}
         />
-        <Division className={styles['chats-item__content']}>В архиве</Division>
+        <Division className={styles['chats-item__content']}>Archived</Division>
       </ListItem>
       {lastChats.map((lastChat) => (
         <ChatsItem key={lastChat.chatId} {...lastChat} />
